@@ -1,36 +1,27 @@
-name: CI Pipeline
-
+name: CI devops 2024
+ 
 on:
   push:
     branches:
       - main
+      - develop
   pull_request:
-    branches:
-      - main
-
+ 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  test-backend:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      # Étape 1 : Checkout du code source
+      - name: Checkout repository
+        uses: actions/checkout@v2.5.0
+ 
+      # Étape 2 : Configuration de JDK 17
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy application
-        run: echo "Deploy step would go here (e.g., uploading to a server or cloud platform)."
+          java-version: '17'
+          distribution: 'adopt'
+ 
+      # Étape 3 : Build et tests Maven
+      - name: Build and test with Maven
+        run: mvn clean verify --file ./simple-api/pom.xml

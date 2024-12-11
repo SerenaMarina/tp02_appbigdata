@@ -22,7 +22,6 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
  
-      # Étape 3 : Build et tests Maven
+      # Étape 3 : build
       - name: Build and test with Maven
         run: mvn clean verify --file ./simple-api/pom.xml
-        

@@ -1,0 +1,13 @@
+- name: Run BACKEND
+  docker_container:
+    name: my-api
+    image: "serenamarina1913/tp-devops-simple-api:backend"
+    networks:
+      - name: my-network
+
+- name: Run FRONTEND
+  docker_container:
+    name: frontend
+    image: "serenamarina1913/tp-devops-simple-api:frontend"
+    networks:
+      - name: my-network

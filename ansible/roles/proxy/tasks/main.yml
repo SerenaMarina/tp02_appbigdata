@@ -1,0 +1,9 @@
+- name: Run HTTPD
+  docker_container:
+    name: httpd
+    image: "erenamarina1913/tp-devops-simple-api:httpd"
+    pull: always
+    networks:
+      - name: my-network
+    ports:
+      - "80:80"

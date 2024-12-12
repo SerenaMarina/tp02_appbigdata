@@ -1,7 +1,7 @@
 - name: Run DATABASE
   docker_container:
     name: my-db
-    image: "serenamarina1913/tp-devops-simple-api:database"
+    image: "serenamarina19/tp-devops-simple-api:database"
     pull: always
     state: started
     networks:

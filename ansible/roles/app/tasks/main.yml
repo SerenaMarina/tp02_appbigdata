@@ -4,10 +4,3 @@
     image: "serenamarina19/tp-devops-simple-api:backend"
     networks:
       - name: my-network
-
-- name: Run FRONTEND
-  docker_container:
-    name: frontend
-    image: "serenamarina19/tp-devops-simple-api:frontend"
-    networks:
-      - name: my-network
